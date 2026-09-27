@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCS Custom Paint | South Orange County Painting & Home Repair</title>
+  <meta name="description" content="Interior & Exterior Painting, Cabinetry, Drywall Repair, and General Home Maintenance in South Orange County.">
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* --- Root Variables & Theme Colors --- */
+    :root {
+      --primary-red: #c8102e;
+      --dark-red: #8B0000;
+      --light-red: #e50914;
+      --jet-black: #0f0f0f;
+      --charcoal: #1f1f1f;
+      --light-gray: #f8f9fa;
+      --border-gray: #e2e8f0;
+      --text-dark: #222222;
+      --text-light: #666666;
+      --white: #ffffff;
+      --transition: all 0.3s ease;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* --- Reset & Global --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title .underline {
+      width: 70px;
+      height: 4px;
+      background: var(--primary-red);
+      margin: 12px auto 16px;
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    .section-title.light h2 { color: var(--white); }
+    .section-title.light p { color: #ccc; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary-red);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--dark-red);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--jet-black);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-secondary:hover {
+      background: var(--charcoal);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* --- Top Bar --- */
+    .top-bar {
+      background: var(--jet-black);
+      color: #ddd;
+      font-size: 0.85rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-quick {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-quick a, .contact-quick span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-quick i {
+      color: var(--primary-red);
+    }
+
+    .top-btn {
+      background: var(--primary-red);
+      color: var(--white);
+      padding: 5px 14px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* --- Navbar --- */
+    .navbar {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 75px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-scs {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary-red);
+      letter-spacing: 1px;
+    }
+
+    .logo-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--jet-black);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-red);
+    }
+
+    .nav-cta {
+      background: var(--jet-black);
+      color: var(--white) !important;
+      padding: 10px 20px;
+      border-radius: 30px;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-red);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      background: #111 url('images/hero/hero-bg.jpg') center/cover no-repeat;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      padding: 80px 0 140px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,15,15,0.92) 0%, rgba(139,0,0,0.7) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary-red);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* Wave Swoosh Divider matching flyer */
+    .swoosh-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .swoosh-bottom svg {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 70px;
+    }
+
+    .swoosh-red { fill: var(--primary-red); }
+    .swoosh-white { fill: var(--white); }
+
+    /* --- Services Section --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: var(--light-gray);
+      padding: 35px 25px;
+      border-radius: 12px;
+      text-align: center;
+      transition: var(--transition);
+      border-bottom: 4px solid transparent;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-bottom-color: var(--primary-red);
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .service-icon {
+      width: 65px;
+      height: 65px;
+      background: var(--primary-red);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      margin: 0 auto 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* --- Before & After Section --- */
+.transformation-section {
+  background: var(--jet-black);
+  color: var(--white);
+}
+
+.comparison-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.comparison-slider {
+  position: relative;
+  width: 100%;
+  height: 840px; /* Taller height for room & cabinet photos */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none; /* Prevents touch scrolling while dragging */
+  cursor: ew-resize;
+}
+
+.img-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* Let slider handle the pointer events */
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Sliding door reveal using clip-path */
+.after-img {
+  clip-path: inset(0 50% 0 0);
+  z-index: 2;
+}
+
+.label {
+  position: absolute;
+  bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+.before-label { right: 20px; z-index: 1; }
+.after-label { left: 20px; z-index: 3; }
+
+/* Handle Divider & Center Button */
+.slider-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 44px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* Pointer tracked by main container */
+}
+
+.handle-line {
+  flex: 1;
+  width: 3px;
+  background: var(--white);
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.handle-circle {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-red);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+
+/* Controls beneath the slider */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-ctrl {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-ctrl:hover, .btn-ctrl.active {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+@media (max-width: 768px) {
+  .comparison-slider {
+    height: 420px;
+  }
+}
+
+    /* --- Gallery Section --- */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border-gray);
+      padding: 8px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary-red);
+      color: var(--white);
+      border-color: var(--primary-red);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 240px;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,15,15,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 600;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      color: var(--white);
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+
+    /* --- Quote / Contact Section --- */
+    .quote-section {
+      background: var(--light-gray);
+    }
+
+    .quote-container {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 50px;
+      align-items: flex-start;
+    }
+
+    .contact-details {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .contact-details li {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-red);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-details strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .contact-details a, .contact-details span {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--jet-black);
+    }
+
+    .quote-form-card {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-form-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--jet-black);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-gray);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.15);
+    }
+
+    .form-status {
+      margin-top: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background: var(--jet-black);
+      color: #888;
+      padding: 40px 0;
+      border-top: 4px solid var(--primary-red);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand .logo-text { color: var(--white); }
+    .footer-brand p { font-size: 0.85rem; margin-top: 5px; }
+    .footer-copy { font-size: 0.85rem; }
+
+    /* --- Responsive Breakpoints --- */
+    @media (max-width: 900px) {
+      .quote-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .top-bar-content { justify-content: center; text-align: center; }
+      
+      .mobile-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .comparison-slider {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="contact-quick">
+        <span><i class="fa-solid fa-location-dot"></i> South Orange County</span>
+        <a href="tel:9499812526"><i class="fa-solid fa-phone"></i> 949-981-2526</a>
+        <a href="mailto:scscustompaint2000@gmail.com"><i class="fa-solid fa-envelope"></i> scscustompaint2000@gmail.com</a>
+      </div>
+      <a href="#quote" class="top-btn">Free Estimate</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-scs">SCS</span>
+        <span class="logo-text">CUSTOM PAINT</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#transformation">Before & After</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <span class="badge">Serving South Orange County</span>
+      <h1>Quality Craftsmanship & Flawless Finishes</h1>
+      <p>Interior & Exterior Painting, Cabinet Refinishing, Drywall & General Home Maintenance tailored to perfection.</p>
+      <div class="hero-buttons">
+        <a href="#quote" class="btn btn-primary">Request a Free Quote</a>
+        <a href="tel:9499812526" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call 949-981-2526</a>
+      </div>
+    </div>
+    <!-- Red & White Curved Swoosh Divider -->
+    <div class="swoosh-bottom">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" class="swoosh-red"></path>
+        <path d="M0,40 C300,110 600,0 1200,70 L1200,120 L0,120 Z" class="swoosh-white"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <div class="underline"></div>
+        <p>Reliable, clean, and top-tier residential and commercial services.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-brush"></i></div>
+          <h3>Interior & Exterior Painting</h3>
+          <p>Full-coverage interior repaints, accent walls, siding, stucco, and weather-resistant exterior coatings.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-paint-roller"></i></div>
+          <h3>Cabinetry & Trim Painting</h3>
+          <p>Transform your kitchen and bathrooms with factory-smooth cabinet refinishing, baseboards, and crown molding.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+          <h3>Drywall Repair & Patching</h3>
+          <p>Seamless patch repairs, texture matching (orange peel, knockdown), and water damage restoration.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
+          <h3>General Home Maintenance</h3>
+          <p>Handyman repairs, pressure washing, caulking, minor woodwork, and seasonal home upkeep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Interactive Slider -->
+<section id="transformation" class="section transformation-section">
+  <div class="container">
+    <div class="section-title light">
+      <h2>See The Transformation</h2>
+      <div class="underline"></div>
+      <p>Drag the slider or click the buttons below to reveal the finished results.</p>
+    </div>
+
+    <div class="comparison-wrapper">
+      <div class="comparison-slider" id="beforeAfterSlider">
+        <!-- Before Image (Bottom Layer) -->
+        <div class="img-container before-img">
+          <img src="images/before-after/before.jpg" alt="Before Paint Job" draggable="false" id="imgBefore">
+          <span class="label before-label">BEFORE</span>
+        </div>
+
+        <!-- After Image (Top Masked Layer) -->
+        <div class="img-container after-img" id="afterContainer">
+          <img src="images/before-after/after.jpg" alt="After Paint Job" draggable="false" id="imgAfter">
+          <span class="label after-label">AFTER</span>
+        </div>
+
+        <!-- Drag Handle Line + Center Button -->
+        <div class="slider-handle" id="sliderHandle">
+          <div class="handle-line"></div>
+          <div class="handle-circle" aria-label="Drag slider">
+            <!-- Inline SVG arrows ensure the button always renders -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="8 4 2 12 8 20"></polyline>
+              <polyline points="16 4 22 12 16 20"></polyline>
+            </svg>
+          </div>
+          <div class="handle-line"></div>
+        </div>
+      </div>
+
+      <!-- Quick Control Buttons -->
+      <div class="slider-controls">
+        <button type="button" class="btn-ctrl" onclick="setSliderPercentage(0)">Show Before</button>
+        <button type="button" class="btn-ctrl active" onclick="setSliderPercentage(50)">50 / 50 Split</button>
+        <button type="button" class="btn-ctrl" onclick="setSliderPercentage(100)">Show After</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Work Gallery</h2>
+        <div class="underline"></div>
+        <p>A few snapshots of recent projects across South Orange County.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="exterior">Exteriors</button>
+        <button class="filter-btn" data-filter="interior">Interiors</button>
+        <button class="filter-btn" data-filter="cabinets">Cabinets & Trim</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="exterior">
+          <img src="images/gallery/3922.jpg" alt="Exterior Paint">
+          <div class="overlay"><span>Full Exterior Repaint</span></div>
+        </div>
+        <div class="gallery-item" data-category="cabinets">
+          <img src="images/gallery/3932.jpg" alt="Kitchen Cabinets">
+          <div class="overlay"><span>Custom Cabinet Finish</span></div>
+        </div>
+        <div class="gallery-item" data-category="interior">
+          <img src="images/gallery/3936.jpg" alt="Living Room Paint">
+          <div class="overlay"><span>Living Room & Trim</span></div>
+        </div>
+        <div class="gallery-item" data-category="exterior">
+          <img src="images/gallery/3938.jpg" alt="Modern House Paint">
+          <div class="overlay"><span>Modern Stucco Refresh</span></div>
+        </div>
+        <div class="gallery-item" data-category="interior">
+          <img src="images/gallery/4115.jpg" alt="Interior Walls">
+          <div class="overlay"><span>Accent Wall & Drywall</span></div>
+        </div>
+        <div class="gallery-item" data-category="cabinets">
+          <img src="images/gallery/3922.jpg" alt="Bathroom Vanity">
+          <div class="overlay"><span>Vanity & Trim Painting</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
+  </div>
+
+  <!-- Contact Section -->
+  <section id="quote" class="section quote-section">
+    <div class="container">
+      <div class="quote-container">
+        
+        <div class="quote-info">
+          <h2>Get in Touch</h2>
+          <div class="underline"></div>
+          <p>Ready to start your next project? Call or fill out the form for a fast, free estimate.</p>
+          
+          <ul class="contact-details">
+            <li>
+              <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:9499812526">949-981-2526</a>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:scscustompaint2000@gmail.com">scscustompaint2000@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Service Area</strong>
+                <span>South Orange County, CA</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="quote-form-card">
+          <h3>Request a Free Estimate</h3>
+          <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+            <!-- Replace with uncle's Web3Forms access key if desired, or standard action -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="to_email" value="scscustompaint2000@gmail.com">
+
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="(949) 000-0000">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="Interior Painting">Interior Painting</option>
+                <option value="Exterior Painting">Exterior Painting</option>
+                <option value="Cabinetry & Trim">Cabinetry & Trim Painting</option>
+                <option value="Drywall Repair">Drywall Repair</option>
+                <option value="General Home Repair">General Home Repair & Maintenance</option>
+                <option value="Other">Other / Multiple Services</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about rooms, sizes, timeline..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo-scs">SCS</span> <span class="logo-text">CUSTOM PAINT</span>
+        <p>South Orange County's trusted painting and home repair specialists.</p>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; <span id="year"></span> SCS Custom Paint. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Embedded JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Dynamic Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // 2. Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+
+      // 3. // --- Before & After Slider Logic ---
+	const slider = document.getElementById('beforeAfterSlider');
+	const afterContainer = document.getElementById('afterContainer');
+	const sliderHandle = document.getElementById('sliderHandle');
+	const ctrlButtons = document.querySelectorAll('.btn-ctrl');
+	let isPointerDown = false;
+
+	function applyPercentage(percentage) {
+	  percentage = Math.max(0, Math.min(100, percentage));
+	  afterContainer.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+	  sliderHandle.style.left = `${percentage}%`;
+	}
+
+	function updateFromPointer(clientX) {
+	  if (!slider) return;
+	  const rect = slider.getBoundingClientRect();
+	  const posX = clientX - rect.left;
+	  const percentage = (posX / rect.width) * 100;
+	  applyPercentage(percentage);
+	}
+
+	// Global button function
+	window.setSliderPercentage = function(pct) {
+	  applyPercentage(pct);
+	  ctrlButtons.forEach(btn => btn.classList.remove('active'));
+	  if (pct === 0 && ctrlButtons[0]) ctrlButtons[0].classList.add('active');
+	  if (pct === 50 && ctrlButtons) ctrlButtons.classList.add('active');
+	  if (pct === 100 && ctrlButtons[2]) ctrlButtons[2].classList.add('active');
+	};
+
+	if (slider) {
+	  slider.addEventListener('pointerdown', (e) => {
+		isPointerDown = true;
+		slider.setPointerCapture(e.pointerId);
+		updateFromPointer(e.clientX);
+		e.preventDefault();
+	  });
+
+	  slider.addEventListener('pointermove', (e) => {
+		if (!isPointerDown) return;
+		updateFromPointer(e.clientX);
+	  });
+
+	  const stopDragging = (e) => {
+		if (isPointerDown) {
+		  isPointerDown = false;
+		  try {
+			slider.releasePointerCapture(e.pointerId);
+		  } catch (err) {}
+		}
+	  };
+
+	  slider.addEventListener('pointerup', stopDragging);
+	  slider.addEventListener('pointercancel', stopDragging);
+	}
+
+      // 4. Gallery Category Filtering
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filterValue = button.getAttribute('data-filter');
+
+          galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 5. Gallery Lightbox Modal
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const src = item.querySelector('img').getAttribute('src');
+          lightboxImg.setAttribute('src', src);
+          lightbox.style.display = 'flex';
+        });
+      });
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => lightbox.style.display = 'none');
+      }
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target !== lightboxImg) lightbox.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
