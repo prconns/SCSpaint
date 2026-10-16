@@ -109,13 +109,18 @@
       border: none;
     }
 
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
     .btn-primary {
       background: var(--primary-red);
       color: var(--white);
       box-shadow: 0 4px 15px rgba(200, 16, 46, 0.4);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover:not(:disabled) {
       background: var(--dark-red);
       transform: translateY(-2px);
     }
@@ -366,136 +371,136 @@
     }
 
     /* --- Before & After Section --- */
-.transformation-section {
-  background: var(--jet-black);
-  color: var(--white);
-}
+    .transformation-section {
+      background: var(--jet-black);
+      color: var(--white);
+    }
 
-.comparison-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-}
+    .comparison-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-.comparison-slider {
-  position: relative;
-  width: 100%;
-  height: 840px; /* Taller height for room & cabinet photos */
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: none; /* Prevents touch scrolling while dragging */
-  cursor: ew-resize;
-}
+    .comparison-slider {
+      position: relative;
+      width: 100%;
+      height: 840px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+      cursor: ew-resize;
+    }
 
-.img-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none; /* Let slider handle the pointer events */
-}
+    .img-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
 
-.img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-}
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
 
-/* Sliding door reveal using clip-path */
-.after-img {
-  clip-path: inset(0 50% 0 0);
-  z-index: 2;
-}
+    /* Sliding door reveal using clip-path */
+    .after-img {
+      clip-path: inset(0 50% 0 0);
+      z-index: 2;
+    }
 
-.label {
-  position: absolute;
-  bottom: 20px;
-  padding: 6px 14px;
-  background: rgba(0, 0, 0, 0.75);
-  color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 700;
-  border-radius: 4px;
-  letter-spacing: 1px;
-  pointer-events: none;
-}
+    .label {
+      position: absolute;
+      bottom: 20px;
+      padding: 6px 14px;
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
 
-.before-label { right: 20px; z-index: 1; }
-.after-label { left: 20px; z-index: 3; }
+    .before-label { right: 20px; z-index: 1; }
+    .after-label { left: 20px; z-index: 3; }
 
-/* Handle Divider & Center Button */
-.slider-handle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  width: 44px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none; /* Pointer tracked by main container */
-}
+    /* Handle Divider & Center Button */
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 44px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+    }
 
-.handle-line {
-  flex: 1;
-  width: 3px;
-  background: var(--white);
-  box-shadow: 0 0 4px rgba(0,0,0,0.4);
-}
+    .handle-line {
+      flex: 1;
+      width: 3px;
+      background: var(--white);
+      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    }
 
-.handle-circle {
-  width: 48px;
-  height: 48px;
-  background: var(--primary-red);
-  border: 3px solid var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  flex-shrink: 0;
-}
+    .handle-circle {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-red);
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+    }
 
-/* Controls beneath the slider */
-.slider-controls {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
-}
+    /* Controls beneath the slider */
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
 
-.btn-ctrl {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 18px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
+    .btn-ctrl {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
 
-.btn-ctrl:hover, .btn-ctrl.active {
-  background: var(--primary-red);
-  border-color: var(--primary-red);
-}
+    .btn-ctrl:hover, .btn-ctrl.active {
+      background: var(--primary-red);
+      border-color: var(--primary-red);
+    }
 
-@media (max-width: 768px) {
-  .comparison-slider {
-    height: 420px;
-  }
-}
+    @media (max-width: 768px) {
+      .comparison-slider {
+        height: 420px;
+      }
+    }
 
     /* --- Gallery Section --- */
     .gallery-filters {
@@ -691,6 +696,15 @@
       margin-top: 15px;
       font-weight: 600;
       text-align: center;
+      font-size: 0.95rem;
+    }
+    
+    .status-success {
+      color: #15803d;
+    }
+    
+    .status-error {
+      color: var(--primary-red);
     }
 
     /* --- Footer --- */
@@ -844,51 +858,50 @@
   </section>
 
   <!-- Before & After Interactive Slider -->
-<section id="transformation" class="section transformation-section">
-  <div class="container">
-    <div class="section-title light">
-      <h2>See The Transformation</h2>
-      <div class="underline"></div>
-      <p>Drag the slider or click the buttons below to reveal the finished results.</p>
-    </div>
+  <section id="transformation" class="section transformation-section">
+    <div class="container">
+      <div class="section-title light">
+        <h2>See The Transformation</h2>
+        <div class="underline"></div>
+        <p>Drag the slider or click the buttons below to reveal the finished results.</p>
+      </div>
 
-    <div class="comparison-wrapper">
-      <div class="comparison-slider" id="beforeAfterSlider">
-        <!-- Before Image (Bottom Layer) -->
-        <div class="img-container before-img">
-          <img src="images/before-after/before.jpg" alt="Before Paint Job" draggable="false" id="imgBefore">
-          <span class="label before-label">BEFORE</span>
-        </div>
-
-        <!-- After Image (Top Masked Layer) -->
-        <div class="img-container after-img" id="afterContainer">
-          <img src="images/before-after/after.jpg" alt="After Paint Job" draggable="false" id="imgAfter">
-          <span class="label after-label">AFTER</span>
-        </div>
-
-        <!-- Drag Handle Line + Center Button -->
-        <div class="slider-handle" id="sliderHandle">
-          <div class="handle-line"></div>
-          <div class="handle-circle" aria-label="Drag slider">
-            <!-- Inline SVG arrows ensure the button always renders -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="8 4 2 12 8 20"></polyline>
-              <polyline points="16 4 22 12 16 20"></polyline>
-            </svg>
+      <div class="comparison-wrapper">
+        <div class="comparison-slider" id="beforeAfterSlider">
+          <!-- Before Image (Bottom Layer) -->
+          <div class="img-container before-img">
+            <img src="images/before-after/before.jpg" alt="Before Paint Job" draggable="false" id="imgBefore">
+            <span class="label before-label">BEFORE</span>
           </div>
-          <div class="handle-line"></div>
+
+          <!-- After Image (Top Masked Layer) -->
+          <div class="img-container after-img" id="afterContainer">
+            <img src="images/before-after/after.jpg" alt="After Paint Job" draggable="false" id="imgAfter">
+            <span class="label after-label">AFTER</span>
+          </div>
+
+          <!-- Drag Handle Line + Center Button -->
+          <div class="slider-handle" id="sliderHandle">
+            <div class="handle-line"></div>
+            <div class="handle-circle" aria-label="Drag slider">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="8 4 2 12 8 20"></polyline>
+                <polyline points="16 4 22 12 16 20"></polyline>
+              </svg>
+            </div>
+            <div class="handle-line"></div>
+          </div>
+        </div>
+
+        <!-- Quick Control Buttons -->
+        <div class="slider-controls">
+          <button type="button" class="btn-ctrl" onclick="setSliderPercentage(0)">Show Before</button>
+          <button type="button" class="btn-ctrl active" onclick="setSliderPercentage(50)">50 / 50 Split</button>
+          <button type="button" class="btn-ctrl" onclick="setSliderPercentage(100)">Show After</button>
         </div>
       </div>
-
-      <!-- Quick Control Buttons -->
-      <div class="slider-controls">
-        <button type="button" class="btn-ctrl" onclick="setSliderPercentage(0)">Show Before</button>
-        <button type="button" class="btn-ctrl active" onclick="setSliderPercentage(50)">50 / 50 Split</button>
-        <button type="button" class="btn-ctrl" onclick="setSliderPercentage(100)">Show After</button>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Gallery Section -->
   <section id="gallery" class="section gallery-section">
@@ -981,9 +994,11 @@
         <div class="quote-form-card">
           <h3>Request a Free Estimate</h3>
           <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-            <!-- Replace with uncle's Web3Forms access key if desired, or standard action -->
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-            <input type="hidden" name="to_email" value="scscustompaint2000@gmail.com">
+            <!-- Replace with Web3Forms access key -->
+            <input type="hidden" name="access_key" value="2e650f2a-ec30-4e12-b67f-b379ebd19b93">
+            <input type="hidden" name="subject" value="New Estimate Request - SCS Custom Paint">
+            <!-- Honeypot anti-spam protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div class="form-group">
               <label for="name">Your Name *</label>
@@ -1018,7 +1033,7 @@
               <textarea id="message" name="message" rows="4" placeholder="Tell us about rooms, sizes, timeline..."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Send Message</button>
             <p class="form-status" id="formStatus"></p>
           </form>
         </div>
@@ -1062,61 +1077,60 @@
         });
       });
 
-      // 3. // --- Before & After Slider Logic ---
-	const slider = document.getElementById('beforeAfterSlider');
-	const afterContainer = document.getElementById('afterContainer');
-	const sliderHandle = document.getElementById('sliderHandle');
-	const ctrlButtons = document.querySelectorAll('.btn-ctrl');
-	let isPointerDown = false;
+      // 3. Before & After Slider Logic
+      const slider = document.getElementById('beforeAfterSlider');
+      const afterContainer = document.getElementById('afterContainer');
+      const sliderHandle = document.getElementById('sliderHandle');
+      const ctrlButtons = document.querySelectorAll('.btn-ctrl');
+      let isPointerDown = false;
 
-	function applyPercentage(percentage) {
-	  percentage = Math.max(0, Math.min(100, percentage));
-	  afterContainer.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-	  sliderHandle.style.left = `${percentage}%`;
-	}
+      function applyPercentage(percentage) {
+        percentage = Math.max(0, Math.min(100, percentage));
+        afterContainer.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        sliderHandle.style.left = `${percentage}%`;
+      }
 
-	function updateFromPointer(clientX) {
-	  if (!slider) return;
-	  const rect = slider.getBoundingClientRect();
-	  const posX = clientX - rect.left;
-	  const percentage = (posX / rect.width) * 100;
-	  applyPercentage(percentage);
-	}
+      function updateFromPointer(clientX) {
+        if (!slider) return;
+        const rect = slider.getBoundingClientRect();
+        const posX = clientX - rect.left;
+        const percentage = (posX / rect.width) * 100;
+        applyPercentage(percentage);
+      }
 
-	// Global button function
-	window.setSliderPercentage = function(pct) {
-	  applyPercentage(pct);
-	  ctrlButtons.forEach(btn => btn.classList.remove('active'));
-	  if (pct === 0 && ctrlButtons[0]) ctrlButtons[0].classList.add('active');
-	  if (pct === 50 && ctrlButtons) ctrlButtons.classList.add('active');
-	  if (pct === 100 && ctrlButtons[2]) ctrlButtons[2].classList.add('active');
-	};
+      window.setSliderPercentage = function(pct) {
+        applyPercentage(pct);
+        ctrlButtons.forEach(btn => btn.classList.remove('active'));
+        if (pct === 0 && ctrlButtons[0]) ctrlButtons[0].classList.add('active');
+        if (pct === 50 && ctrlButtons[1]) ctrlButtons[1].classList.add('active');
+        if (pct === 100 && ctrlButtons[2]) ctrlButtons[2].classList.add('active');
+      };
 
-	if (slider) {
-	  slider.addEventListener('pointerdown', (e) => {
-		isPointerDown = true;
-		slider.setPointerCapture(e.pointerId);
-		updateFromPointer(e.clientX);
-		e.preventDefault();
-	  });
+      if (slider) {
+        slider.addEventListener('pointerdown', (e) => {
+          isPointerDown = true;
+          slider.setPointerCapture(e.pointerId);
+          updateFromPointer(e.clientX);
+          e.preventDefault();
+        });
 
-	  slider.addEventListener('pointermove', (e) => {
-		if (!isPointerDown) return;
-		updateFromPointer(e.clientX);
-	  });
+        slider.addEventListener('pointermove', (e) => {
+          if (!isPointerDown) return;
+          updateFromPointer(e.clientX);
+        });
 
-	  const stopDragging = (e) => {
-		if (isPointerDown) {
-		  isPointerDown = false;
-		  try {
-			slider.releasePointerCapture(e.pointerId);
-		  } catch (err) {}
-		}
-	  };
+        const stopDragging = (e) => {
+          if (isPointerDown) {
+            isPointerDown = false;
+            try {
+              slider.releasePointerCapture(e.pointerId);
+            } catch (err) {}
+          }
+        };
 
-	  slider.addEventListener('pointerup', stopDragging);
-	  slider.addEventListener('pointercancel', stopDragging);
-	}
+        slider.addEventListener('pointerup', stopDragging);
+        slider.addEventListener('pointercancel', stopDragging);
+      }
 
       // 4. Gallery Category Filtering
       const filterButtons = document.querySelectorAll('.filter-btn');
@@ -1158,6 +1172,54 @@
       if (lightbox) {
         lightbox.addEventListener('click', (e) => {
           if (e.target !== lightboxImg) lightbox.style.display = 'none';
+        });
+      }
+
+      // 6. Web3Forms AJAX Form Handling
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          formStatus.textContent = 'Submitting your request...';
+          formStatus.className = 'form-status';
+
+          const formData = new FormData(contactForm);
+          const object = Object.fromEntries(formData);
+          const json = JSON.stringify(object);
+
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: json
+          })
+            .then(async (response) => {
+              const resJson = await response.json();
+              if (response.status === 200) {
+                formStatus.textContent = 'Thank you! Your estimate request has been sent.';
+                formStatus.className = 'form-status status-success';
+                contactForm.reset();
+              } else {
+                formStatus.textContent = resJson.message || 'Something went wrong. Please call directly.';
+                formStatus.className = 'form-status status-error';
+              }
+            })
+            .catch(() => {
+              formStatus.textContent = 'Network error. Please call 949-981-2526.';
+              formStatus.className = 'form-status status-error';
+            })
+            .finally(() => {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send Message';
+            });
         });
       }
     });
